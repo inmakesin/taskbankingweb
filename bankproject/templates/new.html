@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<main>
+  {% if messages %}
+    <ul class="messages newt">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</main>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="login-container" style="background: #cfd0ce;
+width: 350px;
+height: 400px;
+position: absolute;
+top: 58%;
+left: 50%;
+transform: translate(-50%, -50%);
+margin: auto;
+padding: 18px 50px 0px 50px;">
+    <h2>Login</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" placeholder="Enter Username" style="width: 250px;
+        height: 35px;
+        margin-top: 10px;
+        font-family: verdana;
+        font-size: 12px;
+        margin-bottom: 20px;" />
+
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Enter Password" style="width: 250px;
+        height: 35px;
+        margin-top: 10px;
+        font-family: verdana;
+        font-size: 12px;
+        margin-bottom: 20px;" />
+
+        <input type="submit" value="Login" style="float: right;
+        border: none;
+        color: #ffffff;
+        width: 110px;
+        height: 35px;
+        background: #23961a;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-weight: bold;" />
+    </form>
+    <p style="margin-top: 55px;
+    font-family: verdana;
+    font-size: 13px;">Don't you have an account <br> <a href="{% url 'register' %}" style="font-family: verdana;
+    font-size: 15px;">Register Now</a></p>
+</div>
+{% for message in messages %}
+<li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{message}}</li>
+    {% endfor %}
+    {% endblock %}
